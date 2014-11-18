@@ -462,7 +462,7 @@ Back to [index](#index "Back to index") \| [top](# "Back to top")
 
 ##### addCreditCard
 
-Generate a TOTALLY RANDOM credit card number, not useful for anything that is not fill a database field. Still, the number is calculated to succesfully pass the CCChecksum and Luhn Check Digit algorithm.
+Generate a TOTALLY RANDOM credit card number, not useful for anything that is not fill a database field. Still, the number is calculated to succesfully pass the CCChecksum and Luhn Check Digit algorithm (I just check it for 16 digits card number).
 
 ```php
 $faker->addCreditCard($fieldName, $cardType=self::CARD_VISA);
