@@ -611,8 +611,8 @@ For the moment just better phpdoc and some small fixes.
 In the future I plan to add generators for:
 
 * titles and text paragraph directly in html, that include tag opening/close and that is both html and database escaped;
-* user real name (such as John, Frank and so on - except it will be in italian on my wordfile :D );
-* user real surname (such as Smith, Johnson and so on - except it will be in italian on my wordfile :D );
+* user real name (such as John, Frank and so on - except it will be in italian on my wordfile :smirk:);
+* user real surname (such as Smith, Johnson and so on - except it will be in italian on my wordfile :smirk:);
 * combination of the above two;
 * decimal number with both precision and *round-to* parameter (eg. to generate random decimal numbers between 0 and 5 with 0.5 steps);
 * bank account international numbers.
