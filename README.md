@@ -1,5 +1,4 @@
 # mmFaker
-=======
 
 **mmFaker** is a simple tool to generate INSERT INTO .sql files for any table you need to fill with random data.
 
