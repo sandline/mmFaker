@@ -59,7 +59,6 @@ VALUES
 ('Dythqp@alice.it',PASSWORD('mQzDXP0Tr14V7m'),'Che i due descritti di sopra stessero ivi ad aspettar qualcheduno, era cosa troppo evidente; ma quel');
 ```
 
-
 ### References
 
 ---
@@ -71,7 +70,7 @@ Set the name of the table for wich you're generating inserts
 $faker->setTableName($tableName);
 ```
 
-###### Parameters
+###### Parameters for setTableName
 
 >**$tableName:** *string*
 
@@ -86,7 +85,7 @@ Add a TRUNCATE statement as fist row in the generated SQL.
 $faker->truncate();
 ```
 
-###### Parameters
+###### Parameters for truncate
 
 >*none*
 
@@ -102,7 +101,7 @@ $faker->addInteger($fieldName, $generationMode, $minOrFix=null, $max=null);
 $faker->addInteger('parent_product_id', mmFaker::FIXED_VALUE, 1);
 ```
 
-###### Parameters
+###### Parameters for addInteger
 
 >**$fieldName:** *string*
 
@@ -133,7 +132,7 @@ $faker->addDecimal($fieldName, $generationMode, $minOrFix=null, $max=null, $prec
 $faker->addDecimal('user_rating', mmFaker::RANDOM_VALUE, 0, 15, 2);
 ```
 
-###### Parameters
+###### Parameters for addDecimal
 
 >**$fieldName:** *string*
 
@@ -170,7 +169,7 @@ $faker->addBitMap($fieldName, $generationMode, $minOrFix=null, $max=null);
 $faker->addBitMap('user_flags', mmFaker::RANDOM_VALUE, 0, 255);
 ```
 
-###### Parameters
+###### Parameters for addBitMap
 
 >**$fieldName:** *string*
 
@@ -201,7 +200,7 @@ $faker->addIPAddress($fieldName, $generationMode, $ipv4=true, $ipv6=false, $fixe
 $faker->addIPAddress('last_ip', mmFaker::RANDOM_VALUE, true, false);
 ```
 
-###### Parameters
+###### Parameters for addIPAddress
 
 >**$fieldName:** *string*
 
@@ -237,7 +236,7 @@ $faker->addTitle($fieldName, $generationMode, $fixedValue=null);
 $faker->addTitle('article_title', mmFaker::RANDOM_VALUE);
 ```
 
-###### Parameters
+###### Parameters for addTitle
 
 >**$fieldName:** *string*
 
@@ -250,6 +249,39 @@ $faker->addTitle('article_title', mmFaker::RANDOM_VALUE);
 >**$fixedValue:** *string*
 
 >If $generationMode is set to mmFaker::FIXED_VALUE this will be the fixed value for field.
+
+---
+##### addText
+
+Add a column definition that generate random/fixed text paragraph with variable length. If the random paragraph used is larger than maximum length, will be truncated at the nearest space.
+
+eg: if you require 200 as max length and the paragraph is 250 characters and have a space ad position 197 and 204, the result will be the first 196 characters of random picked paragraph.
+
+```php
+$faker->addText($fieldName, $generationMode, $minLengthOrFix=null, $maxLength=null);
+
+/* Example - create a column that contains random text with
+   length between 50 and 150 characters */
+$faker->addText('article_title', mmFaker::RANDOM_VALUE, 50, 150);
+```
+
+###### Parameters for addTitle
+
+>**$fieldName:** *string*
+
+>The name of the table for wich you're generating inserts
+
+>**$generationMode:** *int*
+
+>Use mmFaker::RANDOM_VALUE if you need a random value, mmFaker::FIXED_VALUE if you want a fixed bitmap value in this field (will be translated to bitmap)
+
+>**$minLengthOrFix:** *int*|*string*
+
+>If you're generating a random value it's the minimum text length; if you're generating a fixed value it's the text fixed value
+
+>**$maxLength:** *int*
+
+>The maximum length or NULL to ignore it (only work if you're generating a random value)
 
 ### Customizing word files
 ---------------
