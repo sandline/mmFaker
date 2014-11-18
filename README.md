@@ -22,7 +22,6 @@ CREATE TABLE users (
   
 ) ENGINE=InnoDB;
 ```
-
 Now let's create all random users you need for testing:
 
 ```php
@@ -36,13 +35,30 @@ $faker->setTableName('users')
       ->truncate()
       /* Generate an email address with length between 10 and 80 */
       ->addMail('user_mail', mmFaker::RANDOM_VALUE, 10, 80)
-      /* password is encoded with mysql PASSWORD() function*/
-      ->addPassword('user_password', mmFaker::RANDOM_VALUE, true)
-      /* Say you want 50 rows */
-      ->createRows(50)
+      /* password is encoded with mysql PASSWORD() function if last param is TRUE */
+      ->addPassword('user_password', mmFaker::RANDOM_VALUE, 5, 15, true)
+      /* Add a random user description text between 150 and 300 characters */
+      ->addText('user_description', mmFaker::RANDOM_VALUE, 150, 300)
+      /* Say you want 5 rows */
+      ->createRows(5)
       /* ...and just save to a local file. */
       ->toFile('./insert_users.sql');
 ```
+
+This is the generated insert_user.sql file after running the example script:
+
+```sql
+TRUNCATE TABLE users;
+INSERT INTO users
+(user_mail,user_password,user_description)
+VALUES
+('C_2egS_BAs8TLet5Gh2_wTuqvEysIGg-F8cMObabu9V5bbYHiOGEu0@google.com',PASSWORD('Qsg80NcYf_1R'),'Non è però che non avesse anche lui il suo po\' di fiele in corpo; e quel continuo esercitar la pazienza, quel dar così spesso ragione agli altri, que\' tanti bocconi amari inghiottiti in silenzio, glielo avevano esacerbato a segno che, se non avesse, di tanto in tanto, potuto dargli un po\' di sfogo,'),
+('NjOwcPx1kGCQ_XETAW0wKBywGwll8a4JkF5niqbtXD-VoB@inbox.com',PASSWORD('Olq-WRwfl'),'Si racconta che il principe di Condé dormì profondamente la notte avanti la giornata di Rocroi: ma, in primo luogo, era molto affaticato; secondariamente aveva già date tutte le disposizioni necessarie, e stabilito ciò che dovesse fare, la mattina. Don Abbondio in vece non sapeva altro ancora se'),
+('OrnlCTeP2vRjfhg1wHq-TH8Clr@alice.it',PASSWORD('w-ZTMd7YGO'),'Dominato da questi pensieri, passò davanti a casa sua, ch\'era nel mezzo del villaggio, e, attraversatolo, s\'avviò a quella di Lucia, ch\'era in fondo, anzi un po\' fuori. Aveva quella casetta un piccolo cortile dinanzi, che la separava dalla strada, ed era cinto da un murettino. Renzo entrò nel cortile,'),
+('k0Nq8Terovp72kwbC5yARf.VaXoONyfY@google.com',PASSWORD('TbhzgzO'),'Che i due descritti di sopra stessero ivi ad aspettar qualcheduno, era cosa troppo evidente; ma quel che più dispiacque a don Abbondio fu il dover accorgersi, per certi atti, che l\'aspettato era lui. Perché, al suo apparire, coloro s\'eran guardati in viso, alzando la testa, con un movimento dal quale'),
+('rZ6toYROCWOkWyyy.XEX8kYdK5DmueVM4O5gz@yahoo.com',PASSWORD('V1tw.dVyBUi'),'Lucia usciva in quel momento tutta attillata dalle mani della madre. Le amiche si rubavano la sposa, e le facevan forza perché si lasciasse vedere; e lei s\'andava schermendo, con quella modestia un po\' guerriera delle contadine, facendosi scudo alla faccia col gomito, chinandola sul busto, e aggrottando');
+```
+
 
 ### References
 
