@@ -111,7 +111,7 @@ Back to [index](#index "Back to index") \| [top](# "Back to top")
 
 #### Generate multiple rows changing only one fields every *n* rows
 
-You can redefine a field after the first call to `generateRows()` if you need to change that field value every `n` rows.
+You can redefine a field after the first call to `generateRows()` if you need to change that field value every *n* rows.
 
 Consider the table from previous example and the following snippet as generator:
 
@@ -144,6 +144,30 @@ This will create a 15 rows insert where:
 * rows 1-5 will have "This user is in the first pack of 5" in `user_description` column;
 * rows 6-10 will have "This user is in the second pack of 5" in `user_description` column;
 * rows 11-15 will have "This user is in the third pack of 5" in `user_description` column.
+
+That's the output:
+
+```sql
+TRUNCATE TABLE users;
+INSERT INTO users
+(user_mail,user_password,user_description)
+VALUES
+('y1eAZ@shortmail.com',PASSWORD('yw_h3IHdFF'),'This user is in the first pack of 5'),
+('3VxrO@email.it',PASSWORD('aP0S1'),'This user is in the first pack of 5'),
+('mOzNA@inbox.com',PASSWORD('.W7gNDOR9gjx-4U'),'This user is in the first pack of 5'),
+('ZpiM7@libero.it',PASSWORD('zpjaPWALWkG3Y9E'),'This user is in the first pack of 5'),
+('KLqID@infinito.it',PASSWORD('W9W.ew6bWjlWZ7k'),'This user is in the first pack of 5');
+('v4Hg0_J@tin.it',PASSWORD('Jh9eK71HR0Ma'),'This user is in the second pack of 5'),
+('X3YGPT@gmx.com',PASSWORD('ax.44fS3OzzW'),'This user is in the second pack of 5'),
+('uqs17f@tin.it',PASSWORD('8ZbSQ0mtH'),'This user is in the second pack of 5'),
+('42lW8@yandex.com',PASSWORD('MJq.tNDN3VCY13'),'This user is in the second pack of 5'),
+('4ArSNL@gmx.com',PASSWORD('D4dtd0p'),'This user is in the second pack of 5');
+('ZlzfY@yandex.com',PASSWORD('TOLiAz_ha3IsIi'),'This user is in the third pack of 5'),
+('LVZ5Y@yandex.com',PASSWORD('hT.64z.PpSr'),'This user is in the third pack of 5'),
+('RnZZo@inbox.com',PASSWORD('uGmCx7bfT73t'),'This user is in the third pack of 5'),
+('t8BT7@google.it',PASSWORD('8NvWB'),'This user is in the third pack of 5'),
+('oZl4g@shortmail.com',PASSWORD('eJc.LhTF_aHI'),'This user is in the third pack of 5');
+```
 
 Back to [index](#index "Back to index") \| [top](# "Back to top")
 
