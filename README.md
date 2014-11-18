@@ -74,6 +74,9 @@ VALUES
 ('Dythqp@alice.it',PASSWORD('mQzDXP0Tr14V7m'),'Che i due descritti di sopra stessero ivi ad aspettar qualcheduno, era cosa troppo evidente; ma quel');
 ```
 
++ Parameters
+    + id ... Id of a post.
+
 Back to [index](#index) \| [top](#)
 
 ---
