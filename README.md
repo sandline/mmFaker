@@ -34,11 +34,11 @@ $faker->setTableName('users')
       /* add a TRUNCATE TABLE just before the insert pack */
       ->truncate()
       /* Generate an email address with length between 10 and 80 */
-      ->addMail('user_mail', mmFaker::RANDOM_VALUE, 10, 80)
+      ->addMail('user_mail', mmFaker::RANDOM_VALUE, 10, 20)
       /* password is encoded with mysql PASSWORD() function if last param is TRUE */
       ->addPassword('user_password', mmFaker::RANDOM_VALUE, 5, 15, true)
       /* Add a random user description text between 150 and 300 characters */
-      ->addText('user_description', mmFaker::RANDOM_VALUE, 150, 300)
+      ->addText('user_description', mmFaker::RANDOM_VALUE, 30, 100)
       /* Say you want 5 rows */
       ->createRows(5)
       /* ...and just save to a local file. */
@@ -52,11 +52,11 @@ TRUNCATE TABLE users;
 INSERT INTO users
 (user_mail,user_password,user_description)
 VALUES
-('C_2egS_BAs8TLet5Gh2_wTuqvEysIGg-F8cMObabu9V5bbYHiOGEu0@google.com',PASSWORD('Qsg80NcYf_1R'),'Non è però che non avesse anche lui il suo po\' di fiele in corpo; e quel continuo esercitar la pazienza, quel dar così spesso ragione agli altri, que\' tanti bocconi amari inghiottiti in silenzio, glielo avevano esacerbato a segno che, se non avesse, di tanto in tanto, potuto dargli un po\' di sfogo,'),
-('NjOwcPx1kGCQ_XETAW0wKBywGwll8a4JkF5niqbtXD-VoB@inbox.com',PASSWORD('Olq-WRwfl'),'Si racconta che il principe di Condé dormì profondamente la notte avanti la giornata di Rocroi: ma, in primo luogo, era molto affaticato; secondariamente aveva già date tutte le disposizioni necessarie, e stabilito ciò che dovesse fare, la mattina. Don Abbondio in vece non sapeva altro ancora se'),
-('OrnlCTeP2vRjfhg1wHq-TH8Clr@alice.it',PASSWORD('w-ZTMd7YGO'),'Dominato da questi pensieri, passò davanti a casa sua, ch\'era nel mezzo del villaggio, e, attraversatolo, s\'avviò a quella di Lucia, ch\'era in fondo, anzi un po\' fuori. Aveva quella casetta un piccolo cortile dinanzi, che la separava dalla strada, ed era cinto da un murettino. Renzo entrò nel cortile,'),
-('k0Nq8Terovp72kwbC5yARf.VaXoONyfY@google.com',PASSWORD('TbhzgzO'),'Che i due descritti di sopra stessero ivi ad aspettar qualcheduno, era cosa troppo evidente; ma quel che più dispiacque a don Abbondio fu il dover accorgersi, per certi atti, che l\'aspettato era lui. Perché, al suo apparire, coloro s\'eran guardati in viso, alzando la testa, con un movimento dal quale'),
-('rZ6toYROCWOkWyyy.XEX8kYdK5DmueVM4O5gz@yahoo.com',PASSWORD('V1tw.dVyBUi'),'Lucia usciva in quel momento tutta attillata dalle mani della madre. Le amiche si rubavano la sposa, e le facevan forza perché si lasciasse vedere; e lei s\'andava schermendo, con quella modestia un po\' guerriera delle contadine, facendosi scudo alla faccia col gomito, chinandola sul busto, e aggrottando');
+('5WkTM@alice.it',PASSWORD('AA6AVZClX'),'È accaduto più d\'una volta a personaggi di ben più alto affare che don Abbondio, di trovarsi in frangenti'),
+('MzVCSY@yahoo.it',PASSWORD('deE1wSTf2z'),'Si racconta che il principe di Condé dormì profondamente la notte avanti la giornata di Rocroi: ma,'),
+('ejo08R@alice.it',PASSWORD('TCMwc_fER49V8BJ'),'Non fu però di questo parere l\'Illustrissimo ed Eccellentissimo Signore, il Signor Don Pietro Enriquez'),
+('w8Pbl@google.com',PASSWORD('fuR6qw59Y'),'Don Abbondio (il lettore se n\'è già avveduto) non era nato con un cuor di leone. Ma, fin da\' primi'),
+('Dythqp@alice.it',PASSWORD('mQzDXP0Tr14V7m'),'Che i due descritti di sopra stessero ivi ad aspettar qualcheduno, era cosa troppo evidente; ma quel');
 ```
 
 
