@@ -621,6 +621,8 @@ In the future I plan to add generators for:
 
 Let me know if you need something else!
 
+Back to [index](#index "Back to index") \| [top](# "Back to top")
+
 ---
 ### License & Legal
 
