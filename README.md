@@ -85,13 +85,11 @@ Set the name of the table for wich you're generating inserts
 $faker->setTableName($tableName);
 ```
 
-<small>
 ###### Parameters for setTableName
 
 >**$tableName:** *string*
 
 >The name of the table for wich you're generating inserts
-</small>
 
 Back to [index](#index) \| [top](#)
 
