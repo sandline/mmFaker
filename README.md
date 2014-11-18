@@ -74,7 +74,7 @@ VALUES
 ('Dythqp@alice.it',PASSWORD('mQzDXP0Tr14V7m'),'Che i due descritti di sopra stessero ivi ad aspettar qualcheduno, era cosa troppo evidente; ma quel');
 ```
 
-Back to <a href="#index" title="Back to index" class="label labelstyle-0b02e1 linked-labelstyle-0b02e1 lightertooltipped">index</a> \| <a href="#" title="Back to top" class="label labelstyle-0b02e1 linked-labelstyle-0b02e1 lightertooltipped">top</a>
+Back to [index](#index){: .label } \| [top](#){: .label }
 
 ---
 ##### setTableName
