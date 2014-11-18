@@ -74,7 +74,7 @@ VALUES
 ('Dythqp@alice.it',PASSWORD('mQzDXP0Tr14V7m'),'Che i due descritti di sopra stessero ivi ad aspettar qualcheduno, era cosa troppo evidente; ma quel');
 ```
 
-Back to [index](#index){: .label } \| [top](#){: .label }
+Back to [index](#index) \| [top](#)
 
 ---
 ##### setTableName
@@ -91,7 +91,7 @@ $faker->setTableName($tableName);
 
 >The name of the table for wich you're generating inserts
 
-[Back to index](#index)
+Back to [index](#index) \| [top](#)
 
 ---
 ##### truncate
@@ -106,7 +106,7 @@ $faker->truncate();
 
 >*none*
 
-[Back to index](#index)
+Back to [index](#index) \| [top](#)
 
 ---
 ##### addInteger
@@ -138,7 +138,7 @@ $faker->addInteger('parent_product_id', mmFaker::FIXED_VALUE, 1);
 
 >The maximum value or NULL to ignore it (only work if you're generating a random value)
 
-[Back to index](#index)
+Back to [index](#index) \| [top](#)
 
 ---
 ##### addDecimal
@@ -175,7 +175,7 @@ $faker->addDecimal('user_rating', mmFaker::RANDOM_VALUE, 0, 15, 2);
 
 >The decimal precision
 
-[Back to index](#index)
+Back to [index](#index) \| [top](#)
 
 ---
 ##### addBitMap
@@ -210,7 +210,7 @@ $faker->addBitMap('user_flags', mmFaker::RANDOM_VALUE, 0, 255);
 
 >The maximum value or NULL to ignore it (only work if you're generating a random value)
 
-[Back to index](#index)
+Back to [index](#index) \| [top](#)
 
 ---
 ##### addIPAddress
@@ -247,7 +247,7 @@ $faker->addIPAddress('last_ip', mmFaker::RANDOM_VALUE, true, false);
 
 >the fixed value to use if you specify $generationMode=mmFaker::FIXED_VALUE
 
-[Back to index](#index)
+Back to [index](#index) \| [top](#)
 
 ---
 ##### addTitle
@@ -277,7 +277,7 @@ $faker->addTitle('article_title', mmFaker::RANDOM_VALUE);
 
 >If $generationMode is set to mmFaker::FIXED_VALUE this will be the fixed value for field.
 
-[Back to index](#index)
+Back to [index](#index) \| [top](#)
 
 ---
 ##### addText
@@ -312,7 +312,7 @@ $faker->addText('article_body', mmFaker::RANDOM_VALUE, 50, 150);
 
 >The maximum length or NULL to ignore it (only work if you're generating a random value)
 
-[Back to index](#index)
+Back to [index](#index) \| [top](#)
 
 ---
 ##### addUserName
@@ -347,7 +347,7 @@ $faker->addUserName('user_name', mmFaker::RANDOM_VALUE, 5, 15);
 
 >The maximum length or NULL to ignore it (only work if you're generating a random value)
 
-[Back to index](#index)
+Back to [index](#index) \| [top](#)
 
 ---
 ### Customizing word files
@@ -382,7 +382,7 @@ This contains a set of random user names.
 
 You can put one user name for row; actually it's filled with real user names got from online forums (beware: I didn't check it, so I don't know if there is some user name that may result offensive).
 
-[Back to index](#index)
+Back to [index](#index) \| [top](#)
 
 ---
 ### License & Legal
