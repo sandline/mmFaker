@@ -15,6 +15,7 @@ You don't need to instal it, just put the single mmFaker.php files and *.list fi
 * [addIPAddress](#addipaddress)
 * [addTitle](#addtitle)
 * [addText](#addtext)
+* [addUserName](#addusername)
 * [Customizing word files](#customizing-word-files)
 * [Licensing and legal](#license--legal)
 
