@@ -23,7 +23,7 @@ You don't need to instal it, just put the single mmFaker.php files and *.list fi
 
 ### Example
 
-*Fill an username table* - This generate random data for a sample user table
+*Fill an users table* - This generate random data for a sample user table
 
 Consider the following table:
 
@@ -74,6 +74,12 @@ VALUES
 ('ejo08R@alice.it',PASSWORD('TCMwc_fER49V8BJ'),'Non fu però di questo parere l\'Illustrissimo ed Eccellentissimo Signore, il Signor Don Pietro Enriquez'),
 ('w8Pbl@google.com',PASSWORD('fuR6qw59Y'),'Don Abbondio (il lettore se n\'è già avveduto) non era nato con un cuor di leone. Ma, fin da\' primi'),
 ('Dythqp@alice.it',PASSWORD('mQzDXP0Tr14V7m'),'Che i due descritti di sopra stessero ivi ad aspettar qualcheduno, era cosa troppo evidente; ma quel');
+```
+
+Now you can import new sql data to your favorite database:
+
+```bash
+mysql -uroot -pyourmysqlpassword destination_database < insert_users.sql
 ```
 
 Back to [index](#index) \| [top](#)
