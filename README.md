@@ -18,7 +18,7 @@ You don't need to instal it, just put the single mmFaker.php files and *.list fi
 * [Customizing word files](#customizing-word-files)
 * [Licensing and legal](#license--legal)
 
-### [<img src="https://camo.githubusercontent.com/c89719716afbdf886689abdfb72bd36ffa2bbb70/687474703a2f2f692e696d6775722e636f6d2f52446261724e722e706e67">](#index) Example
+### Example
 
 *Fill an username table* - This generate random data for a sample user table
 
@@ -73,8 +73,10 @@ VALUES
 ('Dythqp@alice.it',PASSWORD('mQzDXP0Tr14V7m'),'Che i due descritti di sopra stessero ivi ad aspettar qualcheduno, era cosa troppo evidente; ma quel');
 ```
 
+[Back to index](#index)
+
 ---
-##### setTableName[<img src="https://camo.githubusercontent.com/c89719716afbdf886689abdfb72bd36ffa2bbb70/687474703a2f2f692e696d6775722e636f6d2f52446261724e722e706e67">](#index)
+##### setTableName
 
 Set the name of the table for wich you're generating inserts
 
@@ -88,8 +90,10 @@ $faker->setTableName($tableName);
 
 >The name of the table for wich you're generating inserts
 
+[Back to index](#index)
+
 ---
-##### truncate[<img src="https://camo.githubusercontent.com/c89719716afbdf886689abdfb72bd36ffa2bbb70/687474703a2f2f692e696d6775722e636f6d2f52446261724e722e706e67">](#index)
+##### truncate
 
 Add a TRUNCATE statement as fist row in the generated SQL.
 
@@ -101,8 +105,10 @@ $faker->truncate();
 
 >*none*
 
+[Back to index](#index)
+
 ---
-##### addInteger[<img src="https://camo.githubusercontent.com/c89719716afbdf886689abdfb72bd36ffa2bbb70/687474703a2f2f692e696d6775722e636f6d2f52446261724e722e706e67">](#index)
+##### addInteger
 
 Add a column definition that generate random/fixed integer values.
 
@@ -131,8 +137,10 @@ $faker->addInteger('parent_product_id', mmFaker::FIXED_VALUE, 1);
 
 >The maximum value or NULL to ignore it (only work if you're generating a random value)
 
+[Back to index](#index)
+
 ---
-##### addDecimal[<img src="https://camo.githubusercontent.com/c89719716afbdf886689abdfb72bd36ffa2bbb70/687474703a2f2f692e696d6775722e636f6d2f52446261724e722e706e67">](#index)
+##### addDecimal
 
 Add a column definition that generate random/fixed decimal values.
 
@@ -166,8 +174,10 @@ $faker->addDecimal('user_rating', mmFaker::RANDOM_VALUE, 0, 15, 2);
 
 >The decimal precision
 
+[Back to index](#index)
+
 ---
-##### addBitMap[<img src="https://camo.githubusercontent.com/c89719716afbdf886689abdfb72bd36ffa2bbb70/687474703a2f2f692e696d6775722e636f6d2f52446261724e722e706e67">](#index)
+##### addBitMap
 
 Add a column definition that generate random/fixed bitmap values in b'01001010' format.
 
@@ -199,8 +209,10 @@ $faker->addBitMap('user_flags', mmFaker::RANDOM_VALUE, 0, 255);
 
 >The maximum value or NULL to ignore it (only work if you're generating a random value)
 
+[Back to index](#index)
+
 ---
-##### addIPAddress[<img src="https://camo.githubusercontent.com/c89719716afbdf886689abdfb72bd36ffa2bbb70/687474703a2f2f692e696d6775722e636f6d2f52446261724e722e706e67">](#index)
+##### addIPAddress
 
 Add a column definition that generate random/fixed ip address values in IPv4, IPv6 or both formats at the same time.
 
@@ -234,8 +246,10 @@ $faker->addIPAddress('last_ip', mmFaker::RANDOM_VALUE, true, false);
 
 >the fixed value to use if you specify $generationMode=mmFaker::FIXED_VALUE
 
+[Back to index](#index)
+
 ---
-##### addTitle[<img src="https://camo.githubusercontent.com/c89719716afbdf886689abdfb72bd36ffa2bbb70/687474703a2f2f692e696d6775722e636f6d2f52446261724e722e706e67">](#index)
+##### addTitle
 
 Add a column definition that generate random/fixed text title useful for fields that contains h1, h2 ... h6 and so on. This may be used also for image descriptions, meta description/keyword values etc.
 
@@ -262,8 +276,10 @@ $faker->addTitle('article_title', mmFaker::RANDOM_VALUE);
 
 >If $generationMode is set to mmFaker::FIXED_VALUE this will be the fixed value for field.
 
+[Back to index](#index)
+
 ---
-##### addText[<img src="https://camo.githubusercontent.com/c89719716afbdf886689abdfb72bd36ffa2bbb70/687474703a2f2f692e696d6775722e636f6d2f52446261724e722e706e67">](#index)
+##### addText
 
 Add a column definition that generate random/fixed text paragraph with variable length. If the random paragraph used is larger than maximum length, will be truncated at the nearest space.
 
@@ -295,8 +311,10 @@ $faker->addText('article_title', mmFaker::RANDOM_VALUE, 50, 150);
 
 >The maximum length or NULL to ignore it (only work if you're generating a random value)
 
-### Customizing word files[<img src="https://camo.githubusercontent.com/c89719716afbdf886689abdfb72bd36ffa2bbb70/687474703a2f2f692e696d6775722e636f6d2f52446261724e722e706e67">](#index)
----------------
+[Back to index](#index)
+
+---
+### Customizing word files
 
 Included in the package you find a pack of .list files that is used as source for random texts.
 
@@ -328,8 +346,10 @@ This contains a set of random user names.
 
 You can put one user name for row; actually it's filled with real user names got from online forums (beware: I didn't check it, so I don't know if there is some user name that may result offensive).
 
-### License & Legal[<img src="https://camo.githubusercontent.com/c89719716afbdf886689abdfb72bd36ffa2bbb70/687474703a2f2f692e696d6775722e636f6d2f52446261724e722e706e67">](#index)
----------------
+[Back to index](#index)
+
+---
+### License & Legal
 
 Copyright 2014 Marco Muracchioli
 
