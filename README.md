@@ -82,15 +82,23 @@ Back to [index](#index) \| [top](#)
 
 The following constant are defined in class and can be used as parameters for function calls:
 
-> **mmFaker::RANDOM_VALUE** = *1*
+##### mmFaker::RANDOM_VALUE
 
-> Used to specify the $generationMode for various class functions
+Used to specify the $generationMode for various class functions. Definition:
 
+```php
+  const RANDOM_VALUE    = 1;
+```
 
+##### mmFaker::FIXED_VALUE
 
-> **mmFaker::FIXED_VALUE** = *2*
+Used to specify the $generationMode for various class functions. Definition:
 
-> Used to specify the $generationMode for various class functions
+```php
+  const FIXED_VALUE     = 2;
+```
+
+Back to [index](#index) \| [top](#)
 
 ### Class function references
 
