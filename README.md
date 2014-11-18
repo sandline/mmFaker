@@ -7,8 +7,8 @@ You don't need to instal it, just put the single mmFaker.php files and *.list fi
 ### Index
 
 * [Usage examples](#example)
-* [Class constant references](#classconstantreferences)
-* [Class function references](#classfunctionreferences)
+* [Class constant references](#class-constant-references)
+* [Class function references](#class-function-references)
   * [setTableName](#settablename)
   * [truncate](#truncate)
   * [addInteger](#addinteger)
@@ -85,6 +85,8 @@ The following constant are defined in class and can be used as parameters for fu
 > **mmFaker::RANDOM_VALUE** = *1*
 
 > Used to specify the $generationMode for various class functions
+
+
 
 > **mmFaker::FIXED_VALUE** = *2*
 
