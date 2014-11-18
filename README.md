@@ -33,11 +33,11 @@ $faker=new mmFaker();
 $faker->setTableName('users')
       /* add a TRUNCATE TABLE just before the insert pack */
       ->truncate()
-      /* Generate an email address with length between 10 and 80 */
+      /* Generate an email address with length between 10 and 20 */
       ->addMail('user_mail', mmFaker::RANDOM_VALUE, 10, 20)
       /* password is encoded with mysql PASSWORD() function if last param is TRUE */
       ->addPassword('user_password', mmFaker::RANDOM_VALUE, 5, 15, true)
-      /* Add a random user description text between 150 and 300 characters */
+      /* Add a random user description text between 30 and 100 characters */
       ->addText('user_description', mmFaker::RANDOM_VALUE, 30, 100)
       /* Say you want 5 rows */
       ->createRows(5)
