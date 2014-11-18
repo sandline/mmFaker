@@ -290,10 +290,10 @@ $faker->addText($fieldName, $generationMode, $minLengthOrFix=null, $maxLength=nu
 
 /* Example - create a column that contains random text with
    length between 50 and 150 characters */
-$faker->addText('article_title', mmFaker::RANDOM_VALUE, 50, 150);
+$faker->addText('article_body', mmFaker::RANDOM_VALUE, 50, 150);
 ```
 
-###### Parameters for addTitle
+###### Parameters for addText
 
 >**$fieldName:** *string*
 
@@ -306,6 +306,41 @@ $faker->addText('article_title', mmFaker::RANDOM_VALUE, 50, 150);
 >**$minLengthOrFix:** *int*|*string*
 
 >If you're generating a random value it's the minimum text length; if you're generating a fixed value it's the text fixed value
+
+>**$maxLength:** *int*
+
+>The maximum length or NULL to ignore it (only work if you're generating a random value)
+
+[Back to index](#index)
+
+---
+##### addUserName
+
+Add a column definition that generate random/fixed user name with variable length.
+
+User names is get directly from usernames.list files: look at [usernames.list for addTitle](#usernameslist-for-adduser) paragraph.
+
+```php
+$faker->addUserName($fieldName, $generationMode, $minLengthOrFix=null, $maxLength=null);
+
+/* Example - create a column that contains random user name
+   with length between 5 and 15 characters */
+$faker->addUserName('user_name', mmFaker::RANDOM_VALUE, 5, 15);
+```
+
+###### Parameters for addUserName
+
+>**$fieldName:** *string*
+
+>The name of the table for wich you're generating inserts
+
+>**$generationMode:** *int*
+
+>Use mmFaker::RANDOM_VALUE if you need a random value, mmFaker::FIXED_VALUE if you want a fixed bitmap value in this field (will be translated to bitmap)
+
+>**$minLengthOrFix:** *int*|*string*
+
+>If you're generating a random value it's the minimum user name length; if you're generating a fixed value it's the user name fixed value
 
 >**$maxLength:** *int*
 
