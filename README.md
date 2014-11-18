@@ -18,7 +18,7 @@ You don't need to instal it, just put the single mmFaker.php files and *.list fi
 * [Customizing word files](#customizing-word-files)
 * [Licensing and legal](#license--legal)
 
-### Example[<img src="https://camo.githubusercontent.com/c89719716afbdf886689abdfb72bd36ffa2bbb70/687474703a2f2f692e696d6775722e636f6d2f52446261724e722e706e67">](#index)
+### [<img src="https://camo.githubusercontent.com/c89719716afbdf886689abdfb72bd36ffa2bbb70/687474703a2f2f692e696d6775722e636f6d2f52446261724e722e706e67">](#index) Example
 
 *Fill an username table* - This generate random data for a sample user table
 
