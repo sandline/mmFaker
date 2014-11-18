@@ -59,6 +59,7 @@ $faker->setTableName($tableName);
 ##### Parameters
 
 >**$tableName:** *string*
+
 >The name of the table for wich you're generating inserts
 
 truncate
@@ -77,7 +78,7 @@ $faker->truncate();
 addInteger
 ---
 
-Add a column definition that generate random/fixed values.
+Add a column definition that generate random/fixed integer values.
 
 ```php
 $faker->addInteger($fieldName, $generationMode, $minOrFix=null, $max=null);
@@ -89,14 +90,62 @@ $faker->addInteger('parent_product_id', mmFaker::FIXED_VALUE, 1);
 ##### Parameters
 
 >**$fieldName:** *string*
+
 >The name of the table for wich you're generating inserts
 
 >**$generationMode:** *int*
->Use mmFaker::RANDOM_VALUE if you need a random value, mmFaker::FIXED_VALUE if you want a fixed integer value in this field (useful for parent reference fixed id)
+
+>Use **mmFaker::RANDOM_VALUE** if you need a random value, **mmFaker::FIXED_VALUE** if you want a fixed integer value in this field (useful for parent reference fixed id)
 
 >**$minOrFix:** *int*
+
 >If you're generating a random value it's the minimum integer value; if you're generating a fixed value it's the integer fixed value
 
 >**$max:** *int*
->Only when you generate random values, this is the maximum value that integer can use
 
+>The maximum value or NULL to ignore it (only work if you're generating a random value)
+
+addDecimal
+---
+
+Add a column definition that generate random/fixed decimal values.
+
+```php
+$faker->addDecimal($fieldName, $generationMode, $minOrFix=null, $max=null, $precision=null);
+
+/* Example - create a column that contains decimal with 2 digits between 0 and 15 (eg. 13.24) */
+$faker->addDecimal('parent_product_id', mmFaker::RANDOM_VALUE, 0, 15, 2);
+```
+
+##### Parameters
+
+>**$fieldName:** *string*
+
+>The name of the table for wich you're generating inserts
+
+>**$generationMode:** *int*
+
+>Use mmFaker::RANDOM_VALUE if you need a random value, mmFaker::FIXED_VALUE if you want a fixed integer value in this field (useful for parent reference fixed id)
+
+>**$minOrFix:** *int*
+
+>If you're generating a random value it's the minimum decimal value; if you're generating a fixed value it's the decimal fixed value
+
+>**$max:** *int*
+
+>The maximum value or NULL to ignore it (only work if you're generating a random value)
+
+>**$precision:** *int*
+
+>The decimal precision
+
+License & Legal
+---------------
+
+Copyright 2014 Marco Muracchioli
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this work except in compliance with the License. You may obtain a copy of the License in the LICENSE file, or at:
+
+ |  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
