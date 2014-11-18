@@ -12,7 +12,8 @@ Actually i've searched for random data generators before write my own, and what 
 
 * most of them connect to db and generate data (it's slow!);
 * each time I need new data, I had to run again the whole process (it's slow!);
-* if I have to share the generated data with another developer, I have to export the full table (i'm slow!).
+* they are made of a lot of classes, that reflects itself and then look again at the mirror before execute, then decided that it's simpliest to use its interface ancestors BUT only if there is no ancestor that have a common parents with a female interface (simplifying: they are too complex for such a simple task!);
+* if I have to share the generated data with another developer, I have to export the full table (i'm lazy!).
 
 So I decided to write a generator of my own, considering my main needs:
 
