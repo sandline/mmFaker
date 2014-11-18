@@ -19,6 +19,7 @@ You don't need to instal it, just put the single mmFaker.php files and *.list fi
   * [addText](#addtext)
   * [addUserName](#addusername)
 * [Customizing word files](#customizing-word-files)
+* [Todo](#todo)
 * [Licensing and legal](#license--legal)
 
 ### Example
@@ -415,6 +416,49 @@ This contains a set of random user names.
 You can put one user name for row; actually it's filled with real user names got from online forums (beware: I didn't check it, so I don't know if there is some user name that may result offensive).
 
 Back to [index](#index "Back to index") \| [top](# "Back to top")
+
+---
+### Todo
+
+Actually the class, when `createRows` is called, clean the rows array and create a fresh new one.
+
+I want to avoid cleaning of rows array and add a `emptyRows` function to make mmFaker capable of genarating multiple rows in a single insert with different fixed values.
+
+That is an example that what mmFaker can do with this new features (the example table is still the user table from [Usage examples](#example) section):
+
+<?php
+require_once './mmFaker.php';
+
+$faker=new mmFaker();
+
+$faker->setTableName('users')
+      /* add a TRUNCATE TABLE just before the insert pack */
+      ->truncate()
+      /* Generate an email address with length between 10 and 20 */
+      ->addMail('user_mail', mmFaker::RANDOM_VALUE, 10, 20)
+      /* password is encoded with mysql PASSWORD() function if last param is TRUE */
+      ->addPassword('user_password', mmFaker::RANDOM_VALUE, 5, 15, true)
+      /* Add a fixed user description */
+      ->addText('user_description', mmFaker::FIXED_VALUE, 'This user is in the first pack of 5')
+      /* Say you want 5 rows */
+      ->createRows(5)
+      /* Replace the fixed user description for next 5 rows */
+      ->addText('user_description', mmFaker::FIXED_VALUE, 'This user is in the second pack of 5')
+      /* 5 more rows */
+      ->createRows(5)
+      /* Replace the fixed user description for next 5 rows */
+      ->addText('user_description', mmFaker::FIXED_VALUE, 'This user is in the third pack of 5')
+      /* 5 more rows */
+      ->createRows(5)
+      /* ...and just save to a local file. */
+      ->toFile('./insert_users.sql');
+```
+
+This will create a 15 rows insert where:
+
+* rows 1-5 will have "This user is in the first pack of 5" in `user_description` column;
+* rows 6-10 will have "This user is in the second pack of 5" in `user_description` column;
+* rows 11-15 will have "This user is in the third pack of 5" in `user_description` column.
 
 ---
 ### License & Legal
