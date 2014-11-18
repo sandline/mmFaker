@@ -80,7 +80,7 @@ $faker->setTableName($tableName);
 ---
 ##### truncate
 
-Add a TRUNCATE statement to the final SQL.
+Add a TRUNCATE statement as fist row in the generated SQL.
 
 ```php
 $faker->truncate();
@@ -222,6 +222,34 @@ $faker->addIPAddress('last_ip', mmFaker::RANDOM_VALUE, true, false);
 >**$ipv6:** *string*
 
 >the fixed value to use if you specify $generationMode=mmFaker::FIXED_VALUE
+
+---
+##### addTitle
+
+Add a column definition that generate random/fixed text title useful for fields that contains h1, h2 ... h6 and so on. This may be used also for image descriptions, meta description/keyword values etc.
+
+Titles does not have minimum/maximum length; look at [titles.list for addTitle] paragraph.
+
+```php
+$faker->addTitle($fieldName, $generationMode, $fixedValue=null);
+
+/* Example - create a column that contains random titles */
+$faker->addTitle('article_title', mmFaker::RANDOM_VALUE);
+```
+
+###### Parameters
+
+>**$fieldName:** *string*
+
+>The name of the table for wich you're generating inserts
+
+>**$generationMode:** *int*
+
+>Use mmFaker::RANDOM_VALUE if you need a random value, mmFaker::FIXED_VALUE if you want a fixed bitmap value in this field (will be translated to bitmap)
+
+>**$fixedValue:** *string*
+
+>If $generationMode is set to mmFaker::FIXED_VALUE this will be the fixed value for field.
 
 ### Customizing word files
 ---------------
