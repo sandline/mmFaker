@@ -7,15 +7,17 @@ You don't need to instal it, just put the single mmFaker.php files and *.list fi
 ### Index
 
 * [Usage examples](#example)
-* [setTableName](#settablename)
-* [truncate](#truncate)
-* [addInteger](#addinteger)
-* [addDecimal](#adddecimal)
-* [addBitMap](#addbitmap)
-* [addIPAddress](#addipaddress)
-* [addTitle](#addtitle)
-* [addText](#addtext)
-* [addUserName](#addusername)
+* [Class constant references](#classconstantreferences)
+* [Class function references](#classfunctionreferences)
+  * [setTableName](#settablename)
+  * [truncate](#truncate)
+  * [addInteger](#addinteger)
+  * [addDecimal](#adddecimal)
+  * [addBitMap](#addbitmap)
+  * [addIPAddress](#addipaddress)
+  * [addTitle](#addtitle)
+  * [addText](#addtext)
+  * [addUserName](#addusername)
 * [Customizing word files](#customizing-word-files)
 * [Licensing and legal](#license--legal)
 
@@ -75,6 +77,20 @@ VALUES
 ```
 
 Back to [index](#index) \| [top](#)
+
+### Class constant references
+
+The following constant are defined in class and can be used as parameters for function calls:
+
+> **mmFaker::RANDOM_VALUE** = *1*
+
+> Used to specify the $generationMode for various class functions
+
+> **mmFaker::FIXED_VALUE** = *2*
+
+> Used to specify the $generationMode for various class functions
+
+### Class function references
 
 ---
 ##### setTableName
