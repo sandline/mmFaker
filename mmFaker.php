@@ -19,7 +19,7 @@
  * By removing or commenting line 22 (that begin with Die) you accept
  * the licence conditions.
  */
-Die("\n\nmmFaker: you must accept the license conditions before use this class. See mmFaker.php source file and read comments.\n\n\n");
+//Die("\n\nmmFaker: you must accept the license conditions before use this class. See mmFaker.php source file and read comments.\n\n\n");
 
 /**
  * Fake Data Generation Toolkit Class
@@ -498,6 +498,7 @@ class mmFaker {
           case self::TYPE_USERNAME:
           case self::TYPE_MAIL:
           case self::TYPE_TEXT:
+            //var_dump($columnInfo['fixValue']);
             $valList[]="'".$this->escapeString($columnInfo['fixValue'])."'";
             break;
           case self::TYPE_BITMAP:
@@ -518,14 +519,16 @@ class mmFaker {
    * @access public
    */
   public function createRows($totalRows) {
-    for($i=0;$i<$totalRows;$i++) {
+    $from=count($this->values);
+    $to=count($this->values)+$totalRows;
+    for($i=$from;$i<$to;$i++) {
       echo ".";
       $this->createRow();
     }
-    for($i=0;$i<$totalRows-1;$i++) {
+    for($i=$from;$i<$to-1;$i++) {
       $this->rows[]="(".implode(',',$this->values[$i])."),";
     }
-    $this->rows[]="(".implode(',',$this->values[$totalRows-1]).");";
+    $this->rows[]="(".implode(',',$this->values[$to-1]).");";
     echo "\n";
     return $this;
   }
@@ -559,7 +562,7 @@ class mmFaker {
     }
     $baseInsert.="INSERT INTO {$this->tableName}\n(";
     foreach ($this->columns as $fieldName => $columnInfo) {
-      $baseInsert.="$fieldName,";
+      $baseInsert.="{$fieldName},";
     }
     $baseInsert=substr($baseInsert,0,-1).")\nVALUES\n";
     file_put_contents($fileName, $baseInsert.implode("\n",$this->rows));
