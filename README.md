@@ -46,7 +46,9 @@ If you have my same need feel free to use this class for your testing porpouse. 
 
 ### Example
 
-*Fill an users table* - This generate random data for a sample user table
+#### Fill an users table
+
+This generate random data for a sample user table.
 
 Consider the following table:
 
@@ -104,6 +106,44 @@ Now you can import new sql data to your favorite database:
 ```bash
 mysql -uroot -pyourmysqlpassword destination_database < insert_users.sql
 ```
+
+Back to [index](#index "Back to index") \| [top](# "Back to top")
+
+#### Generate multiple rows changing only one fields every *n* rows
+
+You can redefine a field after the first call to `generateRows()` if you need to change that field value every `n` rows.
+
+Consider the table from previous example and the following snippet as generator:
+
+```php
+$faker->setTableName('users')
+      /* add a TRUNCATE TABLE just before the insert pack */
+      ->truncate()
+      /* Generate an email address with length between 10 and 20 */
+      ->addMail('user_mail', mmFaker::RANDOM_VALUE, 10, 20)
+      /* password is encoded with mysql PASSWORD() function if last param is TRUE */
+      ->addPassword('user_password', mmFaker::RANDOM_VALUE, 5, 15, true)
+      /* Add a fixed user description */
+      ->addText('user_description', mmFaker::FIXED_VALUE, 'This user is in the first pack of 5')
+      /* Say you want 5 rows */
+      ->createRows(5)
+      /* Replace the fixed user description for next 5 rows */
+      ->addText('user_description', mmFaker::FIXED_VALUE, 'This user is in the second pack of 5')
+      /* 5 more rows */
+      ->createRows(5)
+      /* Replace the fixed user description for next 5 rows */
+      ->addText('user_description', mmFaker::FIXED_VALUE, 'This user is in the third pack of 5')
+      /* 5 more rows */
+      ->createRows(5)
+      /* ...and just save to a local file. */
+      ->toFile('./insert_users.sql');
+```
+
+This will create a 15 rows insert where:
+
+* rows 1-5 will have "This user is in the first pack of 5" in `user_description` column;
+* rows 6-10 will have "This user is in the second pack of 5" in `user_description` column;
+* rows 11-15 will have "This user is in the third pack of 5" in `user_description` column.
 
 Back to [index](#index "Back to index") \| [top](# "Back to top")
 
@@ -186,6 +226,25 @@ Used to specify the $cardType for `addCreditCard()` function. Definition:
 Back to [index](#index "Back to index") \| [top](# "Back to top")
 
 ### Class function references
+
+**WARNING:** All "add" functions create a new field definition. If you use the same field name more than one time, the last definition will replace all previous definitions. Example:
+
+```php
+<?php
+require_once './mmFaker.php';
+
+$faker=new mmFaker();
+
+$faker->setTableName('users')
+      ->truncate()
+      ->addMail('field_name', mmFaker::RANDOM_VALUE, 10, 20)
+      ->addPassword('field_name', mmFaker::RANDOM_VALUE, 5, 15, true)
+      ->addText('field_name', mmFaker::RANDOM_VALUE, 30, 100)
+      ->createRows(5)
+      ->toFile('./insert_users.sql');
+```
+
+This snippet of code will generate inserts with only one field, named field_name that contains random text (last addText() call).
 
 ---
 ##### setTableName
@@ -521,46 +580,7 @@ Back to [index](#index "Back to index") \| [top](# "Back to top")
 ---
 ### Todo
 
-Actually the class, when `createRows` is called, clean the rows array and create a fresh new one.
-
-I want to avoid cleaning of rows array and add a `emptyRows` function to make mmFaker capable of genarating multiple rows in a single insert with different fixed values.
-
-That is an example that what mmFaker can do with this new features (the example table is still the user table from [Usage examples](#example) section):
-
-```php
-<?php
-require_once './mmFaker.php';
-
-$faker=new mmFaker();
-
-$faker->setTableName('users')
-      /* add a TRUNCATE TABLE just before the insert pack */
-      ->truncate()
-      /* Generate an email address with length between 10 and 20 */
-      ->addMail('user_mail', mmFaker::RANDOM_VALUE, 10, 20)
-      /* password is encoded with mysql PASSWORD() function if last param is TRUE */
-      ->addPassword('user_password', mmFaker::RANDOM_VALUE, 5, 15, true)
-      /* Add a fixed user description */
-      ->addText('user_description', mmFaker::FIXED_VALUE, 'This user is in the first pack of 5')
-      /* Say you want 5 rows */
-      ->createRows(5)
-      /* Replace the fixed user description for next 5 rows */
-      ->addText('user_description', mmFaker::FIXED_VALUE, 'This user is in the second pack of 5')
-      /* 5 more rows */
-      ->createRows(5)
-      /* Replace the fixed user description for next 5 rows */
-      ->addText('user_description', mmFaker::FIXED_VALUE, 'This user is in the third pack of 5')
-      /* 5 more rows */
-      ->createRows(5)
-      /* ...and just save to a local file. */
-      ->toFile('./insert_users.sql');
-```
-
-This will create a 15 rows insert where:
-
-* rows 1-5 will have "This user is in the first pack of 5" in `user_description` column;
-* rows 6-10 will have "This user is in the second pack of 5" in `user_description` column;
-* rows 11-15 will have "This user is in the third pack of 5" in `user_description` column.
+For the moment just better phpdoc and some small fixes.
 
 ---
 ### License & Legal
