@@ -39,14 +39,16 @@ $faker->setTableName('users')
       ->addMail('user_mail', mmFaker::RANDOM_VALUE, 10, 80)
       /* password is encoded with mysql PASSWORD() function*/
       ->addPassword('user_password', mmFaker::RANDOM_VALUE, true)
+      /* Say you want 50 rows */
       ->createRows(50)
+      /* ...and just save to a local file. */
       ->toFile('./insert_users.sql');
 ```
 
 ## References
 
 setTableName
-----
+---
 
 Set the name of the table for wich you're generating inserts
 
@@ -56,10 +58,10 @@ $faker->setTableName($tableName);
 
 ##### Parameters
 
->**tableName:** *string* The name of the table for wich you're generating inserts
+>**$tableName:** *string* The name of the table for wich you're generating inserts
 
 truncate
-----
+---
 
 Add a TRUNCATE statement to the final SQL.
 
@@ -70,4 +72,26 @@ $faker->truncate();
 ##### Parameters
 
 >*none*
+
+addInteger
+---
+
+Add a column definition that generate random/fixed values.
+
+```php
+$faker->addInteger($fieldName, $generationMode, $minOrFix=null, $max=null);
+
+/* Example - create a column that always contains `1` */
+$faker->addInteger('parent_product_id', mmFaker::FIXED_VALUE, 1);
+```
+
+##### Parameters
+
+>**$fieldName:** *string* The name of the table for wich you're generating inserts
+
+>**$generationMode:** *int* Use mmFaker::RANDOM_VALUE if you need a random value, mmFaker::FIXED_VALUE if you want a fixed integer value in this field (useful for parent reference fixed id)
+
+>**$minOrFix:** *int* If you're generating a random value it's the minimum integer value; if you're generating a fixed value it's the integer fixed value
+
+>**$max:** *int* Only when you generate random values, this is the maximum value that integer can use
 
