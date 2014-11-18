@@ -426,6 +426,7 @@ I want to avoid cleaning of rows array and add a `emptyRows` function to make mm
 
 That is an example that what mmFaker can do with this new features (the example table is still the user table from [Usage examples](#example) section):
 
+```php
 <?php
 require_once './mmFaker.php';
 
