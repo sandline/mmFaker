@@ -16,10 +16,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * By removing or commenting line 22 (that begin with Die) you accept
- * the licence conditions.
+ * By removing, editing or commenting line 22 (that begin with Die) you
+ * accept the licence conditions.
  */
-//Die("\n\nmmFaker: you must accept the license conditions before use this class. See mmFaker.php source file and read comments.\n\n\n");
+Die("\n\nmmFaker: you must accept the license conditions before use this class. See mmFaker.php source file and read comments.\n\n\n");
 
 /**
  * Fake Data Generation Toolkit Class
