@@ -46,8 +46,8 @@ $faker->setTableName('users')
 
 ### References
 
-##### setTableName
 ---
+##### setTableName
 
 Set the name of the table for wich you're generating inserts
 
