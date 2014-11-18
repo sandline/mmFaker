@@ -112,7 +112,8 @@ Add a column definition that generate random/fixed decimal values.
 ```php
 $faker->addDecimal($fieldName, $generationMode, $minOrFix=null, $max=null, $precision=null);
 
-/* Example - create a column that contains decimal with 2 digits between 0 and 15 (eg. 13.24) */
+/* Example - create a column that contains decimal
+   with 2 digits between 0 and 15 (eg. 13.24) */
 $faker->addDecimal('user_rating', mmFaker::RANDOM_VALUE, 0, 15, 2);
 ```
 
@@ -148,7 +149,8 @@ The number of string bits is related to min/max parameter (0-255 = 8 bits, 0-655
 ```php
 $faker->addBitMap($fieldName, $generationMode, $minOrFix=null, $max=null);
 
-/* Example - create a column that contains a bitmap value between 0 (b'00000000') and 255 (b'11111111') */
+/* Example - create a column that contains a bitmap value
+   between 0 (b'00000000') and 255 (b'11111111') */
 $faker->addBitMap('user_flags', mmFaker::RANDOM_VALUE, 0, 255);
 ```
 
@@ -169,6 +171,41 @@ $faker->addBitMap('user_flags', mmFaker::RANDOM_VALUE, 0, 255);
 >**$max:** *int*
 
 >The maximum value or NULL to ignore it (only work if you're generating a random value)
+
+---
+##### addIPAddress
+
+Add a column definition that generate random/fixed ip address values in IPv4, IPv6 or both formats at the same time.
+
+```php
+$faker->addIPAddress($fieldName, $generationMode, $ipv4=true, $ipv6=false, $fixedValue=null);
+
+/* Example - create a column that contains random ip address
+   only in IPv4 format */
+$faker->addIPAddress('last_ip', mmFaker::RANDOM_VALUE, true, false);
+```
+
+###### Parameters
+
+>**$fieldName:** *string*
+
+>The name of the table for wich you're generating inserts
+
+>**$generationMode:** *int*
+
+>Use mmFaker::RANDOM_VALUE if you need a random value, mmFaker::FIXED_VALUE if you want a fixed bitmap value in this field (will be translated to bitmap)
+
+>**$ipv4:** *bool*
+
+>Set this to TRUE if you want to generate IPv4 addresses
+
+>**$ipv6:** *bool*
+
+>Set this to TRUE if you want to generate IPv6 addresses
+
+>**$ipv6:** *string*
+
+>the fixed value to use if you specify $generationMode=mmFaker::FIXED_VALUE
 
 ### License & Legal
 ---------------
