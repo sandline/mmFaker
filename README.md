@@ -1,11 +1,11 @@
-mmFaker
+# mmFaker
 =======
 
 **mmFaker** is a simple tool to generate INSERT INTO .sql files for any table you need to fill with random data.
 
 You don't need to instal it, just put the single mmFaker.php files and *.list files in a folder and run your code including it.
 
-## Example
+### Example
 
 *Fill an username table* - This generate random data for a sample user table
 
@@ -45,9 +45,9 @@ $faker->setTableName('users')
       ->toFile('./insert_users.sql');
 ```
 
-## References
+### References
 
-setTableName
+##### setTableName
 ---
 
 Set the name of the table for wich you're generating inserts
@@ -56,13 +56,13 @@ Set the name of the table for wich you're generating inserts
 $faker->setTableName($tableName);
 ```
 
-##### Parameters
+###### Parameters
 
 >**$tableName:** *string*
 
 >The name of the table for wich you're generating inserts
 
-truncate
+##### truncate
 ---
 
 Add a TRUNCATE statement to the final SQL.
@@ -71,11 +71,11 @@ Add a TRUNCATE statement to the final SQL.
 $faker->truncate();
 ```
 
-##### Parameters
+###### Parameters
 
 >*none*
 
-addInteger
+##### addInteger
 ---
 
 Add a column definition that generate random/fixed integer values.
@@ -87,7 +87,7 @@ $faker->addInteger($fieldName, $generationMode, $minOrFix=null, $max=null);
 $faker->addInteger('parent_product_id', mmFaker::FIXED_VALUE, 1);
 ```
 
-##### Parameters
+###### Parameters
 
 >**$fieldName:** *string*
 
@@ -105,7 +105,7 @@ $faker->addInteger('parent_product_id', mmFaker::FIXED_VALUE, 1);
 
 >The maximum value or NULL to ignore it (only work if you're generating a random value)
 
-addDecimal
+##### addDecimal
 ---
 
 Add a column definition that generate random/fixed decimal values.
@@ -117,7 +117,7 @@ $faker->addDecimal($fieldName, $generationMode, $minOrFix=null, $max=null, $prec
 $faker->addDecimal('parent_product_id', mmFaker::RANDOM_VALUE, 0, 15, 2);
 ```
 
-##### Parameters
+###### Parameters
 
 >**$fieldName:** *string*
 
@@ -139,7 +139,7 @@ $faker->addDecimal('parent_product_id', mmFaker::RANDOM_VALUE, 0, 15, 2);
 
 >The decimal precision
 
-License & Legal
+### License & Legal
 ---------------
 
 Copyright 2014 Marco Muracchioli
