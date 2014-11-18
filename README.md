@@ -1,8 +1,10 @@
 # mmFaker
 
-**mmFaker** is a simple tool to generate INSERT INTO .sql files for any table you need to fill with random data.
+**mmFaker** is a **simple** tool to generate mysql INSERT INTO .sql files for any table you need to fill with random data.
 
 You don't need to instal it, just put the single mmFaker.php files and *.list files in a folder and run your code including it.
+
+You will have a .sql file that you can run with mysql [database] < file.sql each time you need to refresh your test data.
 
 ### Intro
 
@@ -37,6 +39,7 @@ If you have my same need feel free to use this class for your testing porpouse. 
   * [addTitle](#addtitle)
   * [addText](#addtext)
   * [addUserName](#addusername)
+  * [addCreditCard](#addcreditcard)
 * [Customizing word files](#customizing-word-files)
 * [Todo](#todo)
 * [Licensing and legal](#license--legal)
@@ -113,7 +116,7 @@ The following constant are defined in class and can be used as parameters for fu
 Used to specify the $generationMode for various class functions. Definition:
 
 ```php
-  const RANDOM_VALUE    = 1;
+  const RANDOM_VALUE          = 1;
 ```
 
 ##### mmFaker::FIXED_VALUE
@@ -121,7 +124,63 @@ Used to specify the $generationMode for various class functions. Definition:
 Used to specify the $generationMode for various class functions. Definition:
 
 ```php
-  const FIXED_VALUE     = 2;
+  const FIXED_VALUE           = 2;
+```
+
+##### mmFaker::CARD_VISA
+
+Used to specify the $cardType for `addCreditCard()` function. Definition:
+
+```php
+  const CARD_VISA             = 16;
+```
+
+##### mmFaker::CARD_VISA13
+
+Used to specify the $cardType for `addCreditCard()` function. Definition:
+
+```php
+  const CARD_VISA13           = 13;
+```
+
+##### mmFaker::CARD_DINERS
+
+Used to specify the $cardType for `addCreditCard()` function. Definition:
+
+```php
+  const CARD_DINERS           = 14;
+```
+
+##### mmFaker::CARD_MASTERCARD
+
+Used to specify the $cardType for `addCreditCard()` function. Definition:
+
+```php
+  const CARD_MASTERCARD       = 16;
+```
+
+##### mmFaker::CARD_AMERICANEXPRESS
+
+Used to specify the $cardType for `addCreditCard()` function. Definition:
+
+```php
+  const CARD_AMERICANEXPRESS  = 15;
+```
+
+##### mmFaker::CARD_JCB
+
+Used to specify the $cardType for `addCreditCard()` function. Definition:
+
+```php
+  const CARD_JCP              = 16;
+```
+
+##### mmFaker::CARD_DISCOVER
+
+Used to specify the $cardType for `addCreditCard()` function. Definition:
+
+```php
+  const CARD_DISCOVER         = 16;
 ```
 
 Back to [index](#index "Back to index") \| [top](# "Back to top")
@@ -398,6 +457,29 @@ $faker->addUserName('user_name', mmFaker::RANDOM_VALUE, 5, 15);
 >**$maxLength:** *int*
 
 >The maximum length or NULL to ignore it (only work if you're generating a random value)
+
+Back to [index](#index "Back to index") \| [top](# "Back to top")
+
+##### addCreditCard
+
+Generate a TOTALLY RANDOM credit card number, not useful for anything that is not fill a database field.
+
+```php
+$faker->addCreditCard($fieldName, $cardType=self::CARD_VISA);
+
+/* Example - create an American Express 15 digits card number */
+$faker->addCreditCard('user_card', mmFaker::CARD_AMERICANEXPRESS);
+```
+
+###### Parameters for addUserName
+
+>**$fieldName:** *string*
+
+>The name of the table for wich you're generating inserts
+
+>**$cardType:** *int*
+
+>The card type (only impact on length - actually constants ARE defined as integer value and used as number length)
 
 Back to [index](#index "Back to index") \| [top](# "Back to top")
 
