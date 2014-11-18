@@ -4,6 +4,19 @@
 
 You don't need to instal it, just put the single mmFaker.php files and *.list files in a folder and run your code including it.
 
+### Index
+
+* [Usage examples](#example)
+* [setTableName](#settablename)
+* [truncate](#truncate)
+* [addInteger](#addinteger)
+* [addDecimal](#adddecimal)
+* [addBitMap](#addbitmap)
+* [addIPAddress](#addipaddress)
+* [addTitle](#addtitle)
+* [addText](#addtext)
+* [Customizing word files](#customizing-word-files)
+
 ### Example
 
 *Fill an username table* - This generate random data for a sample user table
@@ -58,23 +71,6 @@ VALUES
 ('w8Pbl@google.com',PASSWORD('fuR6qw59Y'),'Don Abbondio (il lettore se n\'è già avveduto) non era nato con un cuor di leone. Ma, fin da\' primi'),
 ('Dythqp@alice.it',PASSWORD('mQzDXP0Tr14V7m'),'Che i due descritti di sopra stessero ivi ad aspettar qualcheduno, era cosa troppo evidente; ma quel');
 ```
-
-### References
-
-The function references:
-
-* [setTableName](#settablename)
-* [truncate](#truncate)
-* [addInteger](#addinteger)
-* [addDecimal](#adddecimal)
-* [addBitMap](#addbitmap)
-* [addIPAddress](#addipaddress)
-* [addTitle](#addtitle)
-* [addText](#addtext)
-
-The wordfile customizations:
-
-* [Customizing word files](#customizing-word-files)
 
 ---
 ##### setTableName
