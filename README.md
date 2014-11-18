@@ -19,6 +19,8 @@ You don't need to instal it, just put the single mmFaker.php files and *.list fi
 
 ### Example
 
+[back to index](#index)
+
 *Fill an username table* - This generate random data for a sample user table
 
 Consider the following table:
@@ -75,6 +77,8 @@ VALUES
 ---
 ##### setTableName
 
+[back to index](#index)
+
 Set the name of the table for wich you're generating inserts
 
 ```php
@@ -90,6 +94,8 @@ $faker->setTableName($tableName);
 ---
 ##### truncate
 
+[back to index](#index)
+
 Add a TRUNCATE statement as fist row in the generated SQL.
 
 ```php
@@ -102,6 +108,8 @@ $faker->truncate();
 
 ---
 ##### addInteger
+
+[back to index](#index)
 
 Add a column definition that generate random/fixed integer values.
 
