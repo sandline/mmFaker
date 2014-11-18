@@ -21,9 +21,7 @@ So I decided to write a generator of my own, considering my main needs:
 * i want to use file more and more times because my applications edit the data for testing;
 * i want to be able to easily share the generated inserts with other develpers
 
-If you have my same need feel free to use this class for your testing porpouse.
-
-I will update it each time I will need a new database random field value for my tests.
+If you have my same need feel free to use this class for your testing porpouse. **I will update it** each time *I will need a new database random field value* for my tests.
 
 ### Index
 
