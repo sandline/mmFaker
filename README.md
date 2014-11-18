@@ -228,7 +228,7 @@ $faker->addIPAddress('last_ip', mmFaker::RANDOM_VALUE, true, false);
 
 Add a column definition that generate random/fixed text title useful for fields that contains h1, h2 ... h6 and so on. This may be used also for image descriptions, meta description/keyword values etc.
 
-Titles does not have minimum/maximum length; look at [titles.list for addTitle] paragraph.
+Titles does not have minimum/maximum length; look at [titles.list for addTitle](#titleslist-for-addtitle) paragraph.
 
 ```php
 $faker->addTitle($fieldName, $generationMode, $fixedValue=null);
