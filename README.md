@@ -61,6 +61,21 @@ VALUES
 
 ### References
 
+The function references:
+
+* [setTableName](#settablename)
+* [truncate](#truncate)
+* [addInteger](#addinteger)
+* [addDecimal](#adddecimal)
+* [addBitMap](#addbitmap)
+* [addIPAddress](#addipaddress)
+* [addTitle](#addtitle)
+* [addText](#addtext)
+
+The wordfile customizations:
+
+* [Customizing word files](#customizing-word-files)
+
 ---
 ##### setTableName
 
