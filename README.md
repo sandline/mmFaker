@@ -4,6 +4,26 @@
 
 You don't need to instal it, just put the single mmFaker.php files and *.list files in a folder and run your code including it.
 
+### Intro
+
+Why another random data generator for mysql?
+
+Actually i've searched for random data generators before write my own, and what I founded was that:
+
+* most of them connect to db and generate data (it's slow!);
+* each time I need new data, I had to run again the whole process (it's slow!);
+* if I have to share the generated data with another developer, I have to export the full table (i'm slow!).
+
+So I decided to write a generator of my own, considering my main needs:
+
+* must generate a sql file, so I can run directly with mysql < file.sql (it's faster!);
+* i want to use file more and more times because my applications edit the data for testing;
+* i want to be able to easily share the generated inserts with other develpers
+
+If you have my same need feel free to use this class for your testing porpouse.
+
+I will update it each time I will need a new database random field value for my tests.
+
 ### Index
 
 * [Usage examples](#example)
