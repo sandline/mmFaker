@@ -18,7 +18,7 @@ You don't need to instal it, just put the single mmFaker.php files and *.list fi
 * [Customizing word files](#customizing-word-files)
 * [Licensing and legal](#license--legal)
 
-### Example [back to index](#index)
+### Example ![Back to index](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Back to Index" #index)
 
 *Fill an username table* - This generate random data for a sample user table
 
@@ -74,7 +74,7 @@ VALUES
 ```
 
 ---
-##### setTableName [back to index](#index)
+##### setTableName ![Back to index](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Back to Index" #index)
 
 Set the name of the table for wich you're generating inserts
 
@@ -89,7 +89,7 @@ $faker->setTableName($tableName);
 >The name of the table for wich you're generating inserts
 
 ---
-##### truncate [back to index](#index)
+##### truncate ![Back to index](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Back to Index" #index)
 
 Add a TRUNCATE statement as fist row in the generated SQL.
 
@@ -102,7 +102,7 @@ $faker->truncate();
 >*none*
 
 ---
-##### addInteger [back to index](#index)
+##### addInteger ![Back to index](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Back to Index" #index)
 
 Add a column definition that generate random/fixed integer values.
 
@@ -132,7 +132,7 @@ $faker->addInteger('parent_product_id', mmFaker::FIXED_VALUE, 1);
 >The maximum value or NULL to ignore it (only work if you're generating a random value)
 
 ---
-##### addDecimal [back to index](#index)
+##### addDecimal ![Back to index](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Back to Index" #index)
 
 Add a column definition that generate random/fixed decimal values.
 
@@ -167,7 +167,7 @@ $faker->addDecimal('user_rating', mmFaker::RANDOM_VALUE, 0, 15, 2);
 >The decimal precision
 
 ---
-##### addBitMap [back to index](#index)
+##### addBitMap ![Back to index](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Back to Index" #index)
 
 Add a column definition that generate random/fixed bitmap values in b'01001010' format.
 
@@ -200,7 +200,7 @@ $faker->addBitMap('user_flags', mmFaker::RANDOM_VALUE, 0, 255);
 >The maximum value or NULL to ignore it (only work if you're generating a random value)
 
 ---
-##### addIPAddress [back to index](#index)
+##### addIPAddress ![Back to index](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Back to Index" #index)
 
 Add a column definition that generate random/fixed ip address values in IPv4, IPv6 or both formats at the same time.
 
@@ -235,7 +235,7 @@ $faker->addIPAddress('last_ip', mmFaker::RANDOM_VALUE, true, false);
 >the fixed value to use if you specify $generationMode=mmFaker::FIXED_VALUE
 
 ---
-##### addTitle [back to index](#index)
+##### addTitle ![Back to index](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Back to Index" #index)
 
 Add a column definition that generate random/fixed text title useful for fields that contains h1, h2 ... h6 and so on. This may be used also for image descriptions, meta description/keyword values etc.
 
@@ -263,7 +263,7 @@ $faker->addTitle('article_title', mmFaker::RANDOM_VALUE);
 >If $generationMode is set to mmFaker::FIXED_VALUE this will be the fixed value for field.
 
 ---
-##### addText [back to index](#index)
+##### addText ![Back to index](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Back to Index" #index)
 
 Add a column definition that generate random/fixed text paragraph with variable length. If the random paragraph used is larger than maximum length, will be truncated at the nearest space.
 
@@ -295,7 +295,7 @@ $faker->addText('article_title', mmFaker::RANDOM_VALUE, 50, 150);
 
 >The maximum length or NULL to ignore it (only work if you're generating a random value)
 
-### Customizing word files [back to index](#index)
+### Customizing word files ![Back to index](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Back to Index" #index)
 ---------------
 
 Included in the package you find a pack of .list files that is used as source for random texts.
@@ -328,7 +328,7 @@ This contains a set of random user names.
 
 You can put one user name for row; actually it's filled with real user names got from online forums (beware: I didn't check it, so I don't know if there is some user name that may result offensive).
 
-### License & Legal [back to index](#index)
+### License & Legal ![Back to index](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Back to Index" #index)
 ---------------
 
 Copyright 2014 Marco Muracchioli
