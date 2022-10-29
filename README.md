@@ -6,7 +6,7 @@ You don't need to instal it, just put the single mmFaker.php files and *.list fi
 
 You will have a .sql file that you can run with mysql [database] < file.sql each time you need to refresh your test data.
 
-[Stable release v 1.0](https://github.com/sandline/mmFaker/releases/tag/1.0 "Click here for v1.0 download page")
+[Stable release v 1.1](https://github.com/sandline/mmFaker/releases/tag/1.1 "Click here for v1.1 download page")
 
 ### Intro
 
