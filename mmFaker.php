@@ -20,7 +20,7 @@
  * By removing, editing or commenting line 23 (that begin with Die) you
  * accept the licence conditions.
  */
-echo "\n\nmmFaker: Using this class you accept the licensing. See mmFaker.php source file and read comments.\n\n\n";
+echo "\n\nmmFaker: Using this class you accept the licensing. See mmFaker.php source file and read comments.\n\n";
 
 /**
  * Fake Data Generation Toolkit Class
@@ -62,13 +62,20 @@ class mmFaker
     const CARD_JCP              = 16;
     const CARD_DISCOVER         = 16;
 
+    const LISTTYPE_USERNAMES        = 'usernames';
+    const LISTTYPE_PERSONNAMES      = 'person_names';
+    const LISTTYPE_PERSONSURNAMES   = 'person_surnames';
+    const LISTTYPE_TITLES           = 'titles';
+    const LISTTYPE_PARAGRAPHS       = 'paragraphs';
+    const LISTTYPE_MAILSERVERS      = 'mailservers';
+
     protected $lists = [
-        'usernames'   => __DIR__.'/lists/usernames.list',
-        'names'       => __DIR__.'/lists/italian_names.list',
-        'surnames'    => __DIR__.'/lists/italian_surnames.list',
-        'titles'      => __DIR__.'/lists/paragraphs.list',
-        'paragraphs'  => __DIR__.'/lists/titles.list',
-        'servers'     => __DIR__.'/lists/email_servers.list',
+        self::LISTTYPE_USERNAMES      => __DIR__.'/lists/usernames.list',
+        self::LISTTYPE_PERSONNAMES    => __DIR__.'/lists/italian_names.list',
+        self::LISTTYPE_PERSONSURNAMES => __DIR__.'/lists/italian_surnames.list',
+        self::LISTTYPE_TITLES         => __DIR__.'/lists/paragraphs.list',
+        self::LISTTYPE_PARAGRAPHS     => __DIR__.'/lists/titles.list',
+        self::LISTTYPE_MAILSERVERS    => __DIR__.'/lists/email_servers.list',
     ];
 
     private $userNames          = null;
@@ -79,13 +86,13 @@ class mmFaker
     private $personSurnames     = null;
 
     private $validUserNameChars = array('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '_', '.');
-    private $validEmailChars = array('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '_', '.');
+    private $validEmailChars    = array('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '_', '.');
 
-    protected $tableName = null;
-    protected $truncateTable = null;
-    protected $columns = array();
-    protected $values = array();
-    protected $rows = array();
+    protected $tableName        = null;
+    protected $truncateTable    = null;
+    protected $columns          = array();
+    protected $values           = array();
+    protected $rows             = array();
 
     protected $totUserNames             = 0;
     protected $totTextParagraph         = 0;
@@ -96,14 +103,32 @@ class mmFaker
     protected $totValidUserNameChars    = 0;
     protected $totValidEmailChars       = 0;
 
+    /**
+     * Class constructor
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->totValidUserNameChars = count($this->validUserNameChars);
         $this->totValidEmailChars = count($this->validEmailChars);
     }
 
-    public function __destruct()
+    /**
+     * Set a file for specific list contents
+     *
+     * @param  mixed $listType The list type (one of self::LISTTYPE_*)
+     * @param  mixed $filename The filename to use as list source
+     * @return bool TRUE if the file exists and the list is set, FALSE otherwise
+     */
+    public function setList(string $listType, string $filename): bool
     {
+        if (file_exists($filename)) {
+            $this->lists[$listType] = $filename;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -114,7 +139,7 @@ class mmFaker
      * @since 1.0
      * @access protected
      */
-    protected function escapeString($str)
+    protected function escapeString(string $str): string
     {
         return str_replace(array("\\", "\x00", "\n", "\r", "'", '"', "\x1a"), array("\\\\", "\\0", "\\n", "\\r", "\'", '\"', "\\Z"), $str);
     }
@@ -127,7 +152,7 @@ class mmFaker
      * @since 1.0
      * @access public
      */
-    public function setTableName($name)
+    public function setTableName(string $name): mmFaker
     {
         $this->tableName = $name;
         return $this;
@@ -140,7 +165,7 @@ class mmFaker
      * @since 1.0
      * @access public
      */
-    public function reset()
+    public function reset(): mmFaker
     {
         unset($this->columns, $this->userNames, $this->textParagraph, $this->textTitles, $this->emailServers);
         $this->columns = array();
@@ -159,7 +184,7 @@ class mmFaker
      * @since 1.0
      * @access public
      */
-    public function truncate()
+    public function truncate(): mmFaker
     {
         $this->truncateTable = true;
         return $this;
@@ -176,7 +201,7 @@ class mmFaker
      * @since 1.0
      * @access public
      */
-    public function addInteger($fieldName, $generationMode = self::RANDOM_VALUE, $minOrFix = null, $max = null)
+    public function addInteger(string $fieldName, int $generationMode = self::RANDOM_VALUE, int $minOrFix = null, int $max = null): mmFaker
     {
         $this->columns[$fieldName] = array(
             "type"      => self::TYPE_INTEGER,
@@ -191,17 +216,29 @@ class mmFaker
     /**
      * Generate a random integer number
      *
-     * @see addInteger
-     * @return float The integer number
+     * @param int|float $min The minimum range for the number
+     * @param int|float $max The maximum range for the number
+     * @return int The random number
      * @since 1.0
      * @access protected
+     * @see addInteger
      */
-    protected function generateInteger($min, $max)
+    protected function generateInteger(int|float $min, int|float $max): int|float
     {
         return rand($min, $max);
     }
 
-    public function addIPAddress($fieldName, $generationMode = self::RANDOM_VALUE, $ipv4 = true, $ipv6 = false, $fixedValue = null)
+    /**
+     * Add an IP address to the fields
+     *
+     * @param  string $fieldName The field name
+     * @param int $generationMode mmFaker::FIXED_VALUE or mmFaker::RANDOM_VALUE
+     * @param  bool $ipv4 TRUE if the address must be IPv4 (if IPv6 is also true, return a random IP type 4/6)
+     * @param  bool $ipv6 TRUE if the address must be IPv6 (if IPv4 is also true, return a random IP type 4/6)
+     * @param  string $fixedValue Fixed value for FIXED_VALUE generation mode
+     * @return mmFaker The $this class reference for chain-of
+     */
+    public function addIPAddress(string $fieldName, int $generationMode = self::RANDOM_VALUE, bool $ipv4 = true, bool $ipv6 = false, string $fixedValue = null): mmFaker
     {
         $this->columns[$fieldName] = array(
             "type"      => self::TYPE_IPADDRESS,
@@ -213,7 +250,14 @@ class mmFaker
         return $this;
     }
 
-    protected function generateIPAddress($ipv4 = true, $ipv6 = false)
+    /**
+     * Generate an IP address
+     *
+     * @param  bool $ipv4 TRUE if the address must be IPv4 (if IPv6 is also true, return a random IP type 4/6)
+     * @param  bool $ipv6 TRUE if the address must be IPv6 (if IPv4 is also true, return a random IP type 4/6)
+     * @return string An IP address
+     */
+    protected function generateIPAddress($ipv4 = true, $ipv6 = false): string
     {
         switch (true) {
             case ($ipv4 && $ipv6):
@@ -246,7 +290,7 @@ class mmFaker
      * @since 1.0
      * @access public
      */
-    public function addDecimal($fieldName, $generationMode = self::RANDOM_VALUE, $minOrFix = null, $max = null, $precision = null)
+    public function addDecimal(string $fieldName, int $generationMode = self::RANDOM_VALUE, int $minOrFix = null, int $max = null, int $precision = null)
     {
         $this->columns[$fieldName] = array(
             "type"      => self::TYPE_DECIMAL,
@@ -262,10 +306,10 @@ class mmFaker
     /**
      * Generate a random decimal number
      *
-     * @see addDecimal
      * @return float The decimal number
      * @since 1.0
      * @access protected
+     * @see addDecimal
      */
     protected function generateDecimal($min, $max, $precision)
     {
@@ -273,6 +317,16 @@ class mmFaker
         return round($num * ($max - $min) + $min, $precision);
     }
 
+    /**
+     * Add a password field
+     *
+     * @param string $fieldName The field name
+     * @param int $generationMode mmFaker::FIXED_VALUE or mmFaker::RANDOM_VALUE
+     * @param int|string $minLengthOrFix Minimum password length if RANDOM_VALUE, else the max pwd length
+     * @param int $maxLength The max pwd length or ignored if FIXED_VALUE
+     * @param int $encodingType The password hash function to use (one of self::PWD_*)
+     * @return mmFaker The $this class reference for chain-of
+     */
     public function addPassword($fieldName, $generationMode = self::RANDOM_VALUE, $minLengthOrFix = null, $maxLength = null, $encodingType = self::PWD_PASSWORD)
     {
         $this->columns[$fieldName] = array(
@@ -320,7 +374,7 @@ class mmFaker
     public function addUserName($fieldName, $generationMode = self::RANDOM_VALUE, $minLengthOrFix = null, $maxLength = null)
     {
         if ($this->totUserNames == 0) {
-            $this->userNames = explode("\n", file_get_contents($this->lists['usernames']));
+            $this->userNames = explode("\n", file_get_contents($this->lists[self::LISTTYPE_USERNAMES]));
             $this->totUserNames = count($this->userNames) - 1;
         }
         $this->columns[$fieldName] = array(
@@ -336,7 +390,7 @@ class mmFaker
     public function addPersonName($fieldName, $generationMode = self::RANDOM_VALUE, $fixContent = null)
     {
         if ($this->totPersonNames == 0) {
-            $this->personNames = explode("\n", file_get_contents($this->lists['names']));
+            $this->personNames = explode("\n", file_get_contents($this->lists[self::LISTTYPE_PERSONNAMES]));
             $this->totPersonNames = count($this->personNames) - 1;
         }
         $this->columns[$fieldName] = array(
@@ -352,7 +406,7 @@ class mmFaker
     public function addPersonSurname($fieldName, $generationMode = self::RANDOM_VALUE, $fixContent = null)
     {
         if ($this->totPersonSurnames == 0) {
-            $this->personSurnames = explode("\n", file_get_contents($this->lists['surnames']));
+            $this->personSurnames = explode("\n", file_get_contents($this->lists[self::LISTTYPE_PERSONSURNAMES]));
             $this->totPersonSurnames = count($this->personSurnames) - 1;
         }
         $this->columns[$fieldName] = array(
@@ -368,11 +422,11 @@ class mmFaker
     public function addFullPersonName($fieldName, $generationMode = self::RANDOM_VALUE, $fixContent = null)
     {
         if ($this->totPersonNames == 0) {
-            $this->personNames = explode("\n", file_get_contents($this->lists['names']));
+            $this->personNames = explode("\n", file_get_contents($this->lists[self::LISTTYPE_PERSONNAMES]));
             $this->totPersonNames = count($this->personNames) - 1;
         }
         if ($this->totPersonSurnames == 0) {
-            $this->personSurnames = explode("\n", file_get_contents($this->lists['surnames']));
+            $this->personSurnames = explode("\n", file_get_contents($this->lists[self::LISTTYPE_PERSONSURNAMES]));
             $this->totPersonSurnames = count($this->personSurnames) - 1;
         }
         $this->columns[$fieldName] = array(
@@ -445,7 +499,7 @@ class mmFaker
     public function addMail($fieldName, $generationMode = self::RANDOM_VALUE, $minLengthOrFix = null, $maxLength = null)
     {
         if ($this->totEmailServers == 0) {
-            $this->emailServers = explode("\n", file_get_contents($this->lists['servers']));
+            $this->emailServers = explode("\n", file_get_contents($this->lists[self::LISTTYPE_MAILSERVERS]));
             $this->totEmailServers = count($this->emailServers) - 1;
         }
         $this->columns[$fieldName] = array(
@@ -494,7 +548,7 @@ class mmFaker
     public function addText($fieldName, $generationMode = self::RANDOM_VALUE, $minLengthOrFix = null, $maxLength = null)
     {
         if ($this->totTextParagraph == 0) {
-            $this->textParagraph = explode("\n", file_get_contents($this->lists['paragraphs']));
+            $this->textParagraph = explode("\n", file_get_contents($this->lists[self::LISTTYPE_PARAGRAPHS]));
             $this->totTextParagraph = count($this->textParagraph) - 1;
             echo "Loaded {$this->totTextParagraph} text paragraph.\n";
         }
