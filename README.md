@@ -41,7 +41,11 @@ If you have my same need feel free to use this class for your testing porpouse. 
   * [addTitle](#addtitle)
   * [addText](#addtext)
   * [addUserName](#addusername)
+  * addPersonName :warning: TBC
+  * addPersonSurname :warning: TBC
+  * addFullPersonName :warning: TBC
   * [addCreditCard](#addcreditcard)
+  * addPassword :warning: TBC
 * [Customizing word files](#customizing-word-files)
 * [Todo](#todo)
 * [Licensing and legal](#license--legal)
@@ -613,11 +617,10 @@ For the moment just better phpdoc and some small fixes.
 In the future I plan to add generators for:
 
 * titles and text paragraph directly in html, that include tag opening/close and that is both html and database escaped;
-* user real name (such as John, Frank and so on - except it will be in italian on my wordfile :smirk:);
-* user real surname (such as Smith, Johnson and so on - except it will be in italian on my wordfile :smirk:);
-* combination of the above two;
 * decimal number with both precision and *round-to* parameter (eg. to generate random decimal numbers between 0 and 5 with 0.5 steps);
-* bank account international numbers.
+* bank account international numbers;
+* random dates and datetimes for birthdates etc.;
+* utility functions for conversion of dates from/to EPOCH.
 
 Let me know if you need something else!
 
