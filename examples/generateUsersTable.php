@@ -10,19 +10,25 @@ Example for table users with following fields:
     lastlogin_ts BIGINT UNSIGNED
 */
 
+require_once "../vendor/autoload.php";
 
+use mmFaker\Faker;
 
-require "../mmFaker.php";
-
-$faker=new mmFaker();
-
-$faker->setTableName('users')
+$faker=new Faker();
+$faker
+      ->setList(Faker::LISTTYPE_USERNAMES,      '../src/lists/usernames.list')
+      ->setList(Faker::LISTTYPE_MAILSERVERS,    '../src/lists/email_servers.list')
+      ->setList(Faker::LISTTYPE_PARAGRAPHS,     '../src/lists/paragraphs.list')
+      ->setList(Faker::LISTTYPE_PERSONNAMES,    '../src/lists/italian_names.list')
+      ->setList(Faker::LISTTYPE_PERSONSURNAMES, '../src/lists/italian_surnames.list')
+      ->setList(Faker::LISTTYPE_TITLES,         '../src/lists/titles.list')
+      ->setTableName('users')
       ->truncate()
-      ->addMail('user_email', mmFaker::RANDOM_VALUE, 15, 35)
-      ->addPassword('user_pwd', mmFaker::RANDOM_VALUE, 5, 15, mmFaker::PWD_SHA2_256)
+      ->addMail('user_email', Faker::RANDOM_VALUE, 15, 35)
+      ->addPassword('user_pwd', Faker::RANDOM_VALUE, 5, 15, Faker::PWD_SHA2_256)
       ->addPersonName('user_name')
       ->addPersonSurname('user_surname')
       ->addIPAddress('lastlogin_ip')
-      ->addInteger('lastlogin_ts', mmFaker::RANDOM_VALUE, 1609459200, 1667055202)
+      ->addInteger('lastlogin_ts', Faker::RANDOM_VALUE, 1609459200, 1667055202)
       ->createRows(250)
       ->toFile('./insert_users.sql');

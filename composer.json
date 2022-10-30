@@ -1,0 +1,16 @@
+{
+    "name": "sandline/faker",
+    "description": "SQL insert fake data generator",
+    "authors": [
+        {
+            "name": "Marco Muracchioli",
+            "email": "marco.muracchioli@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "mmFaker\\": "src/mmFaker"
+        }
+    }
+}
