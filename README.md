@@ -1,5 +1,7 @@
 # mmFaker
 
+>:warning: Work in progress - documentation not updated
+
 **mmFaker** is a **simple** tool to generate mysql INSERT INTO .sql files for any table you need to fill with random data.
 
 You don't need to instal it, just put the single mmFaker.php files and *.list files in a folder and run your code including it.
